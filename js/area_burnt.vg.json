@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Annual Area Burnt by Wildfires in Australia",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "url": "https://ourworldindata.org/grapher/annual-area-burnt-by-wildfires.csv?v=1&csvType=full&useColumnShortNames=false"
+  },
+  "transform": [
+    {"filter": "datum.Entity == 'Australia'"}
+  ],
+  "mark": "line",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal"
+    },
+    "y": {
+      "field": "Annual area burnt by wildfires",
+      "type": "quantitative",
+      "title": "Area Burnt (hectares)"
+    }
+  }
+}

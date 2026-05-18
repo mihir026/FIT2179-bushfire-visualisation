@@ -1,0 +1,175 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+ 
+  <link rel="stylesheet" href="css/styles.css">
+
+  <title>Australia is Burning! : A data visualisation</title>
+</head>
+
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <div class="page-header">
+    <h1>Australia is Burning</h1>
+    <p class="subtitle">The story behind a decade of escalating bushfire seasons</p>
+  </div>
+
+  <!-- ========== INTRODUCTION ========== -->
+  <div class="section-container">
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <p class="intro-text">
+          Fire has always shaped the Australian landscape, but the fires we face now are different.
+
+          Since the early 2000s, bushfire seasons have been arriving earlier than expected, 
+          lasting longer and burning with an intensity not experienced before.
+          The Black Summer of 2019-2020 scorched more than 18 million hectares, which 
+          in comparision is more area than many countries. Thirty people died and nearly
+          three billion native animals were killed or displaced.
+          This visualisation explores the data behind Australia's escalating bushfire crisis,
+          from the vast scale of destruction to the climate forces that drive it. 
+
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 1: THE BIG PICTURE ========== -->
+  <div class="section-container">
+    <h2 class="section-title">1. The Big Picture</h2>
+    <p class="section-description">
+      Fire seasons are getting worse. The area burned each year and the number of fires
+      recorded across Australia have both trended sharply upward since 2012.
+    </p>
+
+    <!-- Row: Two charts side by side -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="chart-container">
+          <div id="area_burnt_chart"></div>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="chart-container">
+          <div id="num_fires_chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 2: WHERE IT BURNS ========== -->
+  <div class="section-container">
+    <h2 class="section-title">2. Where it Burns</h2>
+    <p class="section-description">
+      Bushfires do not strike Australia evenly. Some states bear a disproportionate
+      share of the destruction, year after year.
+    </p>
+
+    <!-- Row: Map full width -->
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <div class="chart-container">
+          <div id="choropleth_map"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row: Symbol map full width -->
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <div class="chart-container">
+          <div id="symbol_map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 3: THE CLIMATE LINK ========== -->
+  <div class="section-container">
+    <h2 class="section-title">3. The Climate Link</h2>
+    <p class="section-description">
+      Australia is getting hotter. As temperatures rise above the 1961–1990 baseline,
+      the conditions for catastrophic fire become more frequent and more severe.
+    </p>
+
+    <!-- Row: Temperature chart full width -->
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <div class="chart-container">
+          <div id="temp_anomaly_chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row: Scatter + CO2 side by side -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="chart-container">
+          <div id="temp_vs_fire_scatter"></div>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="chart-container">
+          <div id="co2_chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 4: THE COST ========== -->
+  <div class="section-container">
+    <h2 class="section-title">4. The Cost</h2>
+    <p class="section-description">
+      Beyond the flames, the consequences of Australia's bushfire crisis ripple through
+      ecosystems, communities, and the atmosphere itself.
+    </p>
+
+    <!-- Row: Three charts -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="chart-container">
+          <div id="worst_seasons_chart"></div>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="chart-container">
+          <div id="emissions_lollipop"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row: Final chart full width -->
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <div class="chart-container">
+          <div id="rainfall_chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <div class="footer">
+    <p>Visualisation 2 by Mihir Shelke | FIT2179 Data Visualisation 2 | Monash University | 2026</p>
+    <p>Data sources: Bureau of Meteorology (BOM) | Our World in Data (Global Wildfire Information System)</p>
+  </div>
+
+  <!-- JavaScript to embed Vega-Lite charts -->
+  <script src="js/vega_lite_vis.js"></script>
+
+</body>
+
+</html>
