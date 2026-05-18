@@ -8,8 +8,7 @@
   },
   "transform": [
     {"filter": "datum.Entity == 'Australia'"},
-    {"filter": "datum.Year >= 2012"},
-    {"filter": "datum.Year <= 2025"}
+    {"filter": "datum.Year >= 2012 && datum.Year <= 2025"}
 
   ],
   "mark": "line",
