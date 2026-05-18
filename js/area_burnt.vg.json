@@ -9,13 +9,13 @@
   "transform": [
     {"filter": "datum.Entity == 'Australia'"},
     {"filter": "datum.Year >= 2012 && datum.Year <= 2025"}
+
   ],
   "mark": "line",
   "encoding": {
     "x": {
       "field": "Year",
-      "type": "quantitative",
-      "title": "Year"
+      "type": "quantitative"
     },
     "y": {
       "field": "Annual area burnt by wildfires",
