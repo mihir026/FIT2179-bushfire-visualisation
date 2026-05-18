@@ -6,7 +6,7 @@
   "data": {"url": "data/num_fires.csv"},
   "transform": [
     {"filter": "datum.Entity == 'Australia'"},
-    {"filter": "datum.Year >= 2012 && datum.Year <= 2025"}
+    {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"}
   ],
   "mark": "bar",
   "encoding": {
