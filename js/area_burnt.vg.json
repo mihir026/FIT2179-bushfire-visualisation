@@ -4,7 +4,7 @@
   "width": 800,
   "height": 400,
   "data": {
-    "url": "https://ourworldindata.org/grapher/annual-area-burnt-by-wildfires.csv?v=1&csvType=full&useColumnShortNames=false"
+    "url": "data/area_burnt.csv"
   },
   "transform": [
     {"filter": "datum.Entity == 'Australia'"}
