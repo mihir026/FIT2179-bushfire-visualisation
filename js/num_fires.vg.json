@@ -1,0 +1,27 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Annual Number of Fires in Australia",
+  "width": 350,
+  "height": 300,
+  "data": {
+    "url": "data/num_fires.csv"
+  },
+  "transform": [
+    {"filter": "datum.Entity == 'Australia'"},
+    {"filter": "datum.Year >= 2012 && datum.Year <= 2025"}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "timeUnit": "year",
+      "axis": {"format": "%Y", "labelAngle": 45}
+    },
+    "y": {
+      "field": "Annual number of fires",
+      "type": "quantitative",
+      "title": "Number of Fires"
+    }
+  }
+}
