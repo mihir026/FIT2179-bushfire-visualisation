@@ -16,6 +16,7 @@
     "x": {
       "field": "Year",
       "type": "temporal"
+      
     },
     "y": {
       "field": "Annual area burnt by wildfires",
