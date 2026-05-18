@@ -15,7 +15,7 @@
   "encoding": {
     "x": {
       "field": "Year",
-      "type": "quantitative"
+      "type": "temporal"
     },
     "y": {
       "field": "Annual area burnt by wildfires",
