@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Annual CO₂ Emissions from Wildfires in Australia",
+  "width": 400,
+  "height": 300,
+  "data": {"url": "data/co2_emissions.csv"},
+  "transform": [
+    {"filter": "datum.Entity == 'Australia'"},
+    {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"}
+  ],
+  "mark": {"type": "line", "color": "#cc2e2e", "point": true},
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Annual carbon dioxide emissions from wildfires",
+      "type": "quantitative",
+      "title": "CO₂ Emissions (tonnes)"
+    }
+  }
+}
