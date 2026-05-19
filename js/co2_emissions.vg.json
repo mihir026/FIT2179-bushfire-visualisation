@@ -16,7 +16,7 @@
       "title": "Year"
     },
     "y": {
-      "field": "Annual carbon dioxide emissions from wildfires",
+      "field": "Annual carbon dioxide emissions",
       "type": "quantitative",
       "title": "CO₂ Emissions (tonnes)"
     }
