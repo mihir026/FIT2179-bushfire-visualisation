@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Annual Mean Temperature Anomaly in Australia (1910-2025)",
+  "width": 850,
+  "height": 350,
+  "data": {"url": "data/bom_temperature.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"labelAngle": 0, "labelOverlap": true}
+    },
+    "y": {
+      "field": "Anomaly",
+      "type": "quantitative",
+      "title": "Temperature Anomaly (°C)"
+    },
+    "color": {
+      "condition": {
+        "test": "datum.Anomaly > 0",
+        "value": "#cc2e2e"
+      },
+      "value": "#3b6ea5"
+    }
+  }
+}
