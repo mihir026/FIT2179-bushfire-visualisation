@@ -10,30 +10,29 @@ body {
 
 /* ===== HEADER (HERO) ===== */
 .page-header {
-  background: #1a0a00;
-  padding: 100px 40px;
+  /* radial glow from centre like the Black Summer reference */
+  background: radial-gradient(ellipse at center, #3d1a08 0%, #1a0a00 50%, #0f0804 100%);
+  padding: 120px 40px;
   text-align: center;
   color: white;
-  border-bottom: 4px solid #ff6b35;
+  /* no border - let it bleed into the page */
 }
 
 .page-header h1 {
   font-size: 3.8em;
-  margin: 0;
+  margin: 0 0 15px 0;
   letter-spacing: 4px;
   font-weight: normal;
   background: linear-gradient(90deg, #ff9a56 0%, #ff6b35 50%, #e05c00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: none;
-  margin-bottom: 15px;
 }
 
 .subtitle {
   font-size: 1.25em;
   margin-top: 15px;
-  color: #f5e6d3;
+  color: #c8a882;
   font-weight: 300;
   font-style: italic;
 }
@@ -49,7 +48,7 @@ body {
 .section-title {
   font-size: 2.2em;
   color: #ff9a56;
-  border-bottom: 3px solid #ff6b35;
+  border-bottom: 2px solid #3d1a08;
   padding-bottom: 12px;
   margin-bottom: 20px;
   font-weight: normal;
@@ -58,7 +57,7 @@ body {
 
 .section-description {
   font-size: 1.1em;
-  color: #d4b8a0;
+  color: #c8a882;
   line-height: 1.8;
   margin-bottom: 30px;
   max-width: 900px;
@@ -66,26 +65,25 @@ body {
 
 .intro-text {
   font-size: 1.15em;
-  color: #d4b8a0;
+  color: #c8a882;
   line-height: 1.9;
   text-align: center;
-  max-width: 850px;
+  max-width: 800px;
   margin: 0 auto;
   font-style: italic;
-  padding: 30px;
-  background-color: #2d1810;
-  border-left: 5px solid #ff6b35;
-  border-radius: 3px;
+  padding: 35px 40px;
+  background-color: #1e0d06;
+  border-left: 4px solid #e05c00;
+  border-radius: 2px;
 }
 
 /* ===== CHARTS ===== */
 .chart-container {
   padding: 20px;
-  background-color: #2d1810;
+  background-color: #1e0d06;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
   margin-bottom: 20px;
-  border-top: 3px solid #ff6b35;
 }
 
 .pure-g {
@@ -94,13 +92,13 @@ body {
 
 /* ===== FOOTER ===== */
 .footer {
-  background-color: #1a0a00;
-  color: #b8956a;
+  background-color: #0f0804;
+  color: #8a6a4a;
   text-align: center;
   padding: 40px;
   font-size: 0.95em;
   line-height: 1.8;
-  border-top: 4px solid #ff6b35;
+  border-top: 1px solid #2d1810;
 }
 
 .footer p {
