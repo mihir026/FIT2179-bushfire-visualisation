@@ -11,8 +11,8 @@
   "layer": [
     {
       "data": {
-        "url": "js/aus_states.json",
-        "format": {"type": "json", "property": "features"}
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+        "format": {"type": "json"}
       },
       "transform": [
         {
@@ -48,8 +48,8 @@
     },
     {
       "data": {
-        "url": "js/aus_states.json",
-        "format": {"type": "json", "property": "features"}
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+        "format": {"type": "json"}
       },
       "transform": [
         {
