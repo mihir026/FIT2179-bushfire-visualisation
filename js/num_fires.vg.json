@@ -4,7 +4,7 @@
     "text": "Annual Number of Fires in Australia",
     "color": "#f5e6d3"
   },
-  "width": 950,
+  "width": 860,
   "height": 350,
   "background": "#1a0a02",
   "data": {"url": "data/num_fires.csv"},
