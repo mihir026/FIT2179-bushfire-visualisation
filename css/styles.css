@@ -8,14 +8,13 @@ body {
   line-height: 1.6;
 }
 
-/* ===== HEADER (HERO) ===== */
+/* ===== HERO ===== */
 .page-header {
-  /* radial glow from centre like the Black Summer reference */
-  background: radial-gradient(ellipse at center, #3d1a08 0%, #1a0a00 50%, #0f0804 100%);
+  background: linear-gradient(to bottom, #3d1a08 0%, #1a0a00 60%, #0f0804 100%);
   padding: 120px 40px;
   text-align: center;
-  color: white;
-  /* no border - let it bleed into the page */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .page-header h1 {
@@ -31,15 +30,17 @@ body {
 
 .subtitle {
   font-size: 1.25em;
-  margin-top: 15px;
   color: #c8a882;
   font-weight: 300;
   font-style: italic;
+  margin-top: 10px;
 }
 
 /* ===== SECTIONS ===== */
 .section-container {
   max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 60px 20px;
   background-color: #0f0804;
@@ -48,7 +49,7 @@ body {
 .section-title {
   font-size: 2.2em;
   color: #ff9a56;
-  border-bottom: 2px solid #3d1a08;
+  border-bottom: 1px solid #2d1208;
   padding-bottom: 12px;
   margin-bottom: 20px;
   font-weight: normal;
@@ -60,7 +61,6 @@ body {
   color: #c8a882;
   line-height: 1.8;
   margin-bottom: 30px;
-  max-width: 900px;
 }
 
 .intro-text {
@@ -72,22 +72,30 @@ body {
   margin: 0 auto;
   font-style: italic;
   padding: 35px 40px;
-  background-color: #1e0d06;
+  background-color: #1a0a02;
   border-left: 4px solid #e05c00;
-  border-radius: 2px;
 }
 
 /* ===== CHARTS ===== */
 .chart-container {
   padding: 20px;
-  background-color: #1e0d06;
+  background-color: #1a0a02;
   border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
 }
 
+/* override purecss adding its own backgrounds */
 .pure-g {
   margin-bottom: 20px;
+  background: transparent !important;
+}
+
+.pure-g [class*="pure-u"] {
+  background: transparent !important;
+  border: none !important;
+  padding: 4px;
+  box-sizing: border-box;
 }
 
 /* ===== FOOTER ===== */
@@ -98,7 +106,7 @@ body {
   padding: 40px;
   font-size: 0.95em;
   line-height: 1.8;
-  border-top: 1px solid #2d1810;
+  border-top: 1px solid #2d1208;
 }
 
 .footer p {
