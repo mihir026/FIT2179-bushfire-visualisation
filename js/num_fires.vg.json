@@ -1,24 +1,48 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Annual Number of Fires in Australia",
+  "title": {
+    "text": "Annual Number of Fires in Australia",
+    "color": "#f5e6d3"
+  },
   "width": 400,
   "height": 300,
+  "background": "#1a0a02",
   "data": {"url": "data/num_fires.csv"},
   "transform": [
     {"filter": "datum.Entity == 'Australia'"},
     {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"}
   ],
-  "mark": "bar",
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
   "encoding": {
     "x": {
       "field": "Year",
       "type": "ordinal",
-      "title": "Year"
+      "title": "Year",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
     },
     "y": {
       "field": "Annual number of fires",
       "type": "quantitative",
-      "title": "Number of Fires"
-    }
+      "title": "Number of Fires",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
+    },
+    "color": {
+      "condition": {
+        "test": "datum.Year == '2019' || datum.Year == '2020'",
+        "value": "#ff6b35"
+      },
+      "value": "#e05c00"
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Annual number of fires", "type": "quantitative", "title": "Number of Fires", "format": ","}
+    ]
+  },
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
   }
 }

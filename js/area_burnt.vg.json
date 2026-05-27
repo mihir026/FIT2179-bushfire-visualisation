@@ -1,24 +1,38 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Annual Area Burnt by Wildfires in Australia",
+  "title": {
+    "text": "Annual Area Burnt by Wildfires in Australia",
+    "color": "#f5e6d3"
+  },
   "width": 400,
   "height": 300,
+  "background": "#1a0a02",
   "data": {"url": "data/area_burnt.csv"},
   "transform": [
     {"filter": "datum.Entity == 'Australia'"},
     {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"}
   ],
-  "mark": "line",
+  "mark": {"type": "line", "color": "#ff6b35", "point": {"color": "#ff6b35"}, "tooltip": true},
   "encoding": {
     "x": {
       "field": "Year",
       "type": "ordinal",
-      "title": "Year"
+      "title": "Year",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
     },
     "y": {
       "field": "Annual area burnt by wildfires",
       "type": "quantitative",
-      "title": "Area Burnt (hectares)"
-    }
+      "title": "Area Burnt (hectares)",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Annual area burnt by wildfires", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
+    ]
+  },
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
   }
 }
