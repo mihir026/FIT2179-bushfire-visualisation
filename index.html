@@ -66,23 +66,48 @@
   }
   </script>
 
-  <!-- ========== INTRODUCTION ========== -->
-  <div class="section-container">
-    <div class="pure-g">
-      <div class="pure-u-1">
-        <p class="intro-text">
-          Fire has always shaped the Australian landscape, but the fires we face now are different.
-          Since the early 2000s, bushfire seasons have been arriving earlier than expected, 
-          lasting longer and burning with an intensity not experienced before.
-          The Black Summer of 2019-2020 scorched more than 18 million hectares, which 
-          in comparision is more area than many countries. Thirty people died and nearly
-          three billion native animals were killed or displaced.
-          This visualisation explores the data behind Australia's escalating bushfire crisis,
-          from the vast scale of destruction to the climate forces that drive it.
-        </p>
+<!-- ========== INTRODUCTION ========== -->
+<div class="section-container">
+  <div class="pure-g">
+    <div class="pure-u-1">
+      <p class="intro-text">
+        Fire has always shaped the Australian landscape, but the fires we face now are different.
+        Since the early 2000s, bushfire seasons have been arriving earlier than expected, 
+        lasting longer and burning with an intensity not experienced before.
+      </p>
+
+      <p class="intro-text-more" id="intro-more" style="display: none;">
+        The Black Summer of 2019-2020 scorched more than 18 million hectares, which 
+        in comparision is more area than many countries. Thirty people died and nearly
+        three billion native animals were killed or displaced.
+        This visualisation explores the data behind Australia's escalating bushfire crisis,
+        from the vast scale of destruction to the climate forces that drive it.
+      </p>
+
+      <div style="text-align: center; margin-top: 15px;">
+        <span class="read-more-btn" id="read-more-btn" onclick="toggleIntro()">
+          Read more ▼
+        </span>
       </div>
+
     </div>
   </div>
+</div>
+
+<script>
+function toggleIntro() {
+  var moreText = document.getElementById('intro-more');
+  var btn = document.getElementById('read-more-btn');
+
+  if (moreText.style.display === 'none') {
+    moreText.style.display = 'block';
+    btn.innerText = 'Read less ▲';
+  } else {
+    moreText.style.display = 'none';
+    btn.innerText = 'Read more ▼';
+  }
+}
+</script>
 
   <!-- ========== SECTION 1: THE BIG PICTURE ========== -->
   <div class="section-container" id="big-picture">

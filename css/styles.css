@@ -156,3 +156,25 @@ body {
 .footer p {
   margin: 8px 0;
 }
+/* Read more */
+/* ===== READ MORE BUTTON ===== */
+.intro-text-more {
+  font-size: 1.15em;
+  color: #c8a882;
+  line-height: 1.9;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  font-style: italic;
+  padding: 0 40px 20px 40px;
+  background-color: #1a0a02;
+  border-left: 4px solid #e05c00;
+}
+
+.read-more-btn {
+  color: #ff9a56;
+  font-size: 0.95em;
+  cursor: pointer;
+  font-style: italic;
+  letter-spacing: 1px;
+}
