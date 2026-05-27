@@ -2,7 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Annual Area Burnt by Wildfires in Australia",
-    "color": "#f5e6d3"
+    "color": "#f5e6d3",
+    "fontSize": 16
   },
   "width": 860,
   "height": 350,
@@ -18,13 +19,13 @@
       "field": "Year",
       "type": "ordinal",
       "title": "Year",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
     },
     "y": {
       "field": "Annual area burnt by wildfires",
       "type": "quantitative",
       "title": "Area Burnt (hectares)",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
     },
     "tooltip": [
       {"field": "Year", "type": "ordinal", "title": "Year"},
