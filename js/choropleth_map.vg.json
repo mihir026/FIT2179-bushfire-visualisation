@@ -36,17 +36,8 @@
       "legend": {"labelColor": "#c8a882", "titleColor": "#c8a882"}
     },
     "tooltip": [
-      {
-        "field": "properties.STATE_NAME",
-        "type": "nominal",
-        "title": "State"
-      },
-      {
-        "field": "area_burnt_ha",
-        "type": "quantitative",
-        "title": "Area Burnt (ha)",
-        "format": ","
-      }
+      {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
+      {"field": "area_burnt_ha", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
     ]
   },
   "config": {"background": "#1a0a02", "view": {"stroke": "transparent"}}
