@@ -57,7 +57,7 @@
       "encoding": {
         "x": {"field": "Year", "type": "ordinal"},
         "y": {"field": "Annual number of fires", "type": "quantitative"},
-        "text": {"value": "Black Summer ▲"}
+        "text": {"value": "Black Summer"}
       }
     }
   ],
