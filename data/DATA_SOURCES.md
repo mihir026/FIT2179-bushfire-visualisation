@@ -21,3 +21,13 @@
 - **URL**: https://ourworldindata.org/grapher/annual-carbon-dioxide-emissions.csv?v=1&csvType=full&useColumnShortNames=false
 - **Description**: Annual CO₂ emissions from wildfires
 - **Coverage**: 2012-2026, includes Australia
+
+## state_fires.csv
+- NSW 2019-20: NSW Rural Fire Service Annual Report 2019-20
+  https://www.rfs.nsw.gov.au/
+- VIC 2019-20: Country Fire Authority Victoria Annual Report 2019-20
+  https://www.cfa.vic.gov.au/
+- All states aggregated: Geoscience Australia National Bushfire Data
+  https://digital.atlas.gov.au/pages/national-bushfire-data
+- AFAC national summary: Australasian Fire and Emergency Service Authorities Council
+  https://www.afac.com.au/

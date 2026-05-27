@@ -1,0 +1,17 @@
+state,state_code,year,area_burnt_ha
+New South Wales,NSW,2019,5260867
+Victoria,VIC,2019,1902631
+Queensland,QLD,2019,832439
+Western Australia,WA,2019,246884
+South Australia,SA,2019,98213
+Tasmania,TAS,2019,64452
+Northern Territory,NT,2019,149500
+Australian Capital Territory,ACT,2019,85000
+New South Wales,NSW,2020,312000
+Victoria,VIC,2020,142000
+Queensland,QLD,2020,445000
+Western Australia,WA,2020,523000
+South Australia,SA,2020,87000
+Tasmania,TAS,2020,12000
+Northern Territory,NT,2020,890000
+Australian Capital Territory,ACT,2020,4000
