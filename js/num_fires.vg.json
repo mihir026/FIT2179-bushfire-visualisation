@@ -12,35 +12,55 @@
     {"filter": "datum.Entity == 'Australia'"},
     {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"}
   ],
-  "mark": {
-    "type": "bar",
-    "tooltip": true
-  },
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "title": "Year",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
+  "layer": [
+    {
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
+        },
+        "y": {
+          "field": "Annual number of fires",
+          "type": "quantitative",
+          "title": "Number of Fires",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
+        },
+        "color": {
+          "condition": {
+            "test": "datum.Year == '2019' || datum.Year == '2020'",
+            "value": "#ff6b35"
+          },
+          "value": "#7a3010"
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Annual number of fires", "type": "quantitative", "title": "Number of Fires", "format": ","}
+        ]
+      }
     },
-    "y": {
-      "field": "Annual number of fires",
-      "type": "quantitative",
-      "title": "Number of Fires",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208"}
-    },
-    "color": {
-      "condition": {
-        "test": "datum.Year == '2019' || datum.Year == '2020'",
-        "value": "#ff6b35"
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -5,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#ff9a56"
       },
-      "value": "#e05c00"
-    },
-    "tooltip": [
-      {"field": "Year", "type": "ordinal", "title": "Year"},
-      {"field": "Annual number of fires", "type": "quantitative", "title": "Number of Fires", "format": ","}
-    ]
-  },
+      "transform": [
+        {"filter": "datum.Year == '2019'"}
+      ],
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Annual number of fires", "type": "quantitative"},
+        "text": {"value": "Black Summer ▲"}
+      }
+    }
+  ],
   "config": {
     "background": "#1a0a02",
     "view": {"stroke": "transparent"}
