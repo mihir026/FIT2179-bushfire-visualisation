@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Area Burnt by State — 2019 Black Summer",
+    "color": "#f5e6d3"
+  },
+  "width": 700,
+  "height": 400,
+  "background": "#1a0a02",
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "js/aus_states.json",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {"url": "data/state_fires.csv"},
+            "key": "state",
+            "fields": ["area_burnt_ha", "state_code"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#3d1a08", "strokeWidth": 1},
+      "encoding": {
+        "color": {
+          "field": "area_burnt_ha",
+          "type": "quantitative",
+          "title": "Area Burnt (ha)",
+          "scale": {
+            "type": "threshold",
+            "domain": [100000, 500000, 1000000, 3000000],
+            "range": ["#7a3010", "#a84020", "#d45030", "#e05c00", "#ff6b35"]
+          },
+          "legend": {
+            "labelColor": "#c8a882",
+            "titleColor": "#c8a882"
+          }
+        },
+        "tooltip": [
+          {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
+          {"field": "area_burnt_ha", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "js/aus_states.json",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {"url": "data/state_fires.csv"},
+            "key": "state",
+            "fields": ["state_code"]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "color": "#f5e6d3"
+      },
+      "encoding": {
+        "longitude": {"field": "properties.STATE_NAME", "type": "nominal"},
+        "text": {"field": "state_code", "type": "nominal"}
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
+  }
+}
