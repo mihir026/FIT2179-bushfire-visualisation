@@ -1,8 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Annual Mean Temperature Anomaly in Australia (1910-2025)",
-  "width": 850,
+  "title": {
+    "text": "Annual Mean Temperature Anomaly in Australia (1910-2025)",
+    "color": "#f5e6d3",
+    "fontSize": 16
+  },
+  "width": 860,
   "height": 350,
+  "background": "#1a0a02",
   "data": {"url": "data/bom_temperature.csv"},
   "mark": "bar",
   "encoding": {
@@ -10,19 +15,28 @@
       "field": "Year",
       "type": "ordinal",
       "title": "Year",
-      "axis": {"labelAngle": 0, "labelOverlap": true}
+      "axis": {"labelAngle": 0, "labelOverlap": true, "labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
     },
     "y": {
       "field": "Anomaly",
       "type": "quantitative",
-      "title": "Temperature Anomaly (°C)"
+      "title": "Temperature Anomaly (°C)",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
     },
     "color": {
       "condition": {
         "test": "datum.Anomaly > 0",
-        "value": "#cc2e2e"
+        "value": "#ff6b35"
       },
-      "value": "#3b6ea5"
-    }
+      "value": "#7a3010"
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Anomaly", "type": "quantitative", "title": "Anomaly (°C)", "format": ".2f"}
+    ]
+  },
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
   }
 }

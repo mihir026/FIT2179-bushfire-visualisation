@@ -1,24 +1,39 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Annual CO₂ Emissions from Wildfires in Australia",
-  "width": 400,
-  "height": 300,
+  "title": {
+    "text": "Annual CO₂ Emissions from Wildfires in Australia",
+    "color": "#f5e6d3",
+    "fontSize": 16
+  },
+  "width": 860,
+  "height": 350,
+  "background": "#1a0a02",
   "data": {"url": "data/co2_emissions.csv"},
   "transform": [
     {"filter": "datum.Entity == 'Australia'"},
     {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"}
   ],
-  "mark": {"type": "line", "color": "#cc2e2e", "point": true},
+  "mark": {"type": "line", "color": "#ff6b35", "point": {"color": "#ff6b35"}, "tooltip": true},
   "encoding": {
     "x": {
       "field": "Year",
       "type": "ordinal",
-      "title": "Year"
+      "title": "Year",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
     },
     "y": {
       "field": "Annual carbon dioxide emissions",
       "type": "quantitative",
-      "title": "CO₂ Emissions (tonnes)"
-    }
+      "title": "CO₂ Emissions (tonnes)",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Annual carbon dioxide emissions", "type": "quantitative", "title": "CO₂ Emissions (t)", "format": ","}
+    ]
+  },
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
   }
 }
