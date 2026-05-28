@@ -17,8 +17,8 @@ vegaEmbed("#temp_anomaly_chart", "js/temp_anomaly.vg.json").catch(console.error)
 // Chart 6: Temperature vs Area Burnt (Scatter)
 vegaEmbed("#temp_vs_fire_scatter", "js/temp_vs_fire.vg.json").catch(console.error);
 
-// Chart 7: CO2 Emissions from Fires
-vegaEmbed("#co2_chart", "js/co2_emissions.vg.json").catch(console.error);
+// Chart 7: Emissions per Hectare Scatter
+vegaEmbed("#emissions_lollipop", "js/emissions_hectare.vg.json").catch(console.error);
 
 // Chart 8: Worst Fire Seasons
 vegaEmbed("#worst_seasons_chart", "js/worst_seasons.vg.json").catch(console.error);
