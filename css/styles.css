@@ -11,7 +11,7 @@ body {
 /* ===== HEADER (HERO) ===== */
 .page-header {
   background: linear-gradient(to bottom, #3d1a08 0%, #1a0a00 60%, #0f0804 100%);
-  padding: 120px 40px;
+  padding: 80px 40px;
   text-align: center;
   width: 100%;
 }
@@ -19,18 +19,14 @@ body {
 .page-header h1 {
   font-size: 3.8em;
   margin: 0 0 15px 0;
-  letter-spacing: 4px;
   font-weight: normal;
-  background: linear-gradient(90deg, #ff9a56 0%, #ff6b35 50%, #e05c00 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ff9a56;
 }
 
 .subtitle {
   font-size: 1.25em;
   color: #c8a882;
-  font-weight: 300;
+  font-weight: normal;
   font-style: italic;
   margin-top: 10px;
 }
@@ -42,11 +38,13 @@ body {
   margin: 0;
 }
 
+/* using flexbox for kpi cards - taught in Week 5 */
 .kpi-grid {
   max-width: 1000px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 15px;
 }
 
@@ -56,7 +54,7 @@ body {
   padding: 25px 20px;
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  width: 20%;
 }
 
 .kpi-card:hover {
@@ -68,7 +66,6 @@ body {
   color: #ff9a56;
   font-weight: normal;
   margin-bottom: 8px;
-  letter-spacing: 1px;
 }
 
 .kpi-label {
@@ -98,7 +95,6 @@ body {
   padding-bottom: 12px;
   margin-bottom: 20px;
   font-weight: normal;
-  letter-spacing: 2px;
 }
 
 .section-description {
@@ -125,20 +121,17 @@ body {
 .chart-container {
   padding: 20px;
   background-color: #1a0a02;
-  border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
 }
 
-/* override purecss adding its own backgrounds */
+/* override purecss backgrounds */
 .pure-g {
   margin-bottom: 20px;
-  background: transparent !important;
+  background-color: transparent;
 }
 
 .pure-g [class*="pure-u"] {
-  background: transparent !important;
-  border: none !important;
+  background-color: transparent;
   padding: 4px;
 }
 
@@ -156,7 +149,7 @@ body {
 .footer p {
   margin: 8px 0;
 }
-/* Read more */
+
 /* ===== READ MORE BUTTON ===== */
 .intro-text-more {
   font-size: 1.15em;
@@ -176,5 +169,4 @@ body {
   font-size: 0.95em;
   cursor: pointer;
   font-style: italic;
-  letter-spacing: 1px;
 }
