@@ -1,9 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Temp Anomaly vs CO₂ per Hectare",
+    "text": "CO₂ Emissions per Hectare Burnt (2012–2025)",
+    "subtitle": "How intensely each fire season burned — combines emissions and area data",
     "color": "#f5e6d3",
-    "fontSize": 16
+    "subtitleColor": "#c8a882",
+    "fontSize": 16,
+    "subtitleFontSize": 12
   },
   "width": 860,
   "height": 350,
@@ -21,64 +24,47 @@
       }
     },
     {
-      "lookup": "Year",
-      "from": {
-        "data": {"url": "data/bom_temperature.csv"},
-        "key": "Year",
-        "fields": ["Anomaly"]
-      }
-    },
-    {
       "calculate": "datum['Annual carbon dioxide emissions'] / datum['Annual area burnt by wildfires']",
       "as": "co2_per_ha"
     }
   ],
   "layer": [
     {
-      "mark": {"type": "circle", "size": 150, "opacity": 0.9, "tooltip": true},
+      "mark": {"type": "rule", "strokeWidth": 2, "color": "#7a3010"},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "co2_per_ha", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "point", "size": 120, "filled": true, "tooltip": true},
       "encoding": {
         "x": {
-          "field": "Anomaly",
-          "type": "quantitative",
-          "title": "Temperature Anomaly (°C)",
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
           "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
         },
         "y": {
           "field": "co2_per_ha",
           "type": "quantitative",
-          "title": "CO₂ per Hectare Burnt (tonnes/ha)",
+          "title": "CO₂ per Hectare (tonnes/ha)",
           "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
         },
         "color": {
-          "field": "Anomaly",
+          "field": "co2_per_ha",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
-            "domain": [0.5, 1.0, 1.5],
-            "range": ["#3d0a00", "#7a3010", "#e05c00", "#ff6b35"]
+            "domain": [100, 150, 200, 250],
+            "range": ["#3d0a00", "#7a3010", "#e05c00", "#ff6b35", "#ff9a56"]
           },
           "legend": null
         },
         "tooltip": [
           {"field": "Year", "type": "ordinal", "title": "Year"},
-          {"field": "Anomaly", "type": "quantitative", "title": "Temp Anomaly (°C)", "format": ".2f"},
-          {"field": "co2_per_ha", "type": "quantitative", "title": "CO₂/ha (t/ha)", "format": ".2f"}
+          {"field": "co2_per_ha", "type": "quantitative", "title": "CO₂ per Hectare (t/ha)", "format": ".2f"}
         ]
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 8,
-        "fontSize": 11,
-        "fontStyle": "italic",
-        "color": "#ff9a56"
-      },
-      "encoding": {
-        "x": {"field": "Anomaly", "type": "quantitative"},
-        "y": {"field": "co2_per_ha", "type": "quantitative"},
-        "text": {"field": "Year", "type": "ordinal"}
       }
     }
   ],
