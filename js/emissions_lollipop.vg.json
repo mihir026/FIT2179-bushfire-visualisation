@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "CO₂ Emissions per Hectare Burnt (2012–2025)",
+    "color": "#f5e6d3",
+    "fontSize": 16
+  },
+  "width": 860,
+  "height": 350,
+  "background": "#1a0a02",
+  "data": {"url": "data/co2_emissions.csv"},
+  "transform": [
+    {"filter": "datum.Entity == 'Australia'"},
+    {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"},
+    {
+      "lookup": "Year",
+      "from": {
+        "data": {"url": "data/area_burnt.csv"},
+        "key": "Year",
+        "fields": ["Annual area burnt by wildfires"]
+      }
+    },
+    {
+      "calculate": "datum['Annual carbon dioxide emissions'] / datum['Annual area burnt by wildfires']",
+      "as": "co2_per_ha"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rule", "strokeWidth": 2, "color": "#7a3010"},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "co2_per_ha", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "point", "size": 120, "filled": true, "tooltip": true},
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "y": {
+          "field": "co2_per_ha",
+          "type": "quantitative",
+          "title": "CO₂ per Hectare (tonnes/ha)",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "color": {
+          "field": "co2_per_ha",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [0.5, 1.0, 1.5, 2.0],
+            "range": ["#3d0a00", "#7a3010", "#e05c00", "#ff6b35", "#ff9a56"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "co2_per_ha", "type": "quantitative", "title": "CO₂ per Hectare (t/ha)", "format": ".2f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
+  }
+}

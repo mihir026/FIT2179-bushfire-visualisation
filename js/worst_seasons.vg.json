@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Australia's Worst Fire Seasons by Area Burnt",
+    "color": "#f5e6d3",
+    "fontSize": 16
+  },
+  "width": 860,
+  "height": 350,
+  "background": "#1a0a02",
+  "data": {"url": "data/area_burnt.csv"},
+  "transform": [
+    {"filter": "datum.Entity == 'Australia'"},
+    {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"},
+    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Annual area burnt by wildfires", "order": "descending"}]},
+    {"filter": "datum.rank <= 8"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "y": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "sort": "-x",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "x": {
+          "field": "Annual area burnt by wildfires",
+          "type": "quantitative",
+          "title": "Area Burnt (hectares)",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "color": {
+          "condition": {
+            "test": "datum.Year == '2012' || datum.Year == '2023'",
+            "value": "#ff6b35"
+          },
+          "value": "#7a3010"
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Annual area burnt by wildfires", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#ff9a56"
+      },
+      "encoding": {
+        "y": {"field": "Year", "type": "ordinal", "sort": "-x"},
+        "x": {"field": "Annual area burnt by wildfires", "type": "quantitative"},
+        "text": {"field": "Annual area burnt by wildfires", "type": "quantitative", "format": ".2s"}
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
+  }
+}
