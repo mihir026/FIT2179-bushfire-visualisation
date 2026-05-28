@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Hotter Years Mean More Fires — Temperature Anomaly vs Number of Fires",
+    "subtitle": "Each dot represents one year (2012–2025)",
+    "color": "#f5e6d3",
+    "subtitleColor": "#c8a882",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
+  "width": 860,
+  "height": 350,
+  "background": "#1a0a02",
+  "data": {"url": "data/num_fires.csv"},
+  "transform": [
+    {"filter": "datum.Entity == 'Australia'"},
+    {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"},
+    {
+      "lookup": "Year",
+      "from": {
+        "data": {"url": "data/bom_temperature.csv"},
+        "key": "Year",
+        "fields": ["Anomaly"]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "circle", "size": 150, "opacity": 0.9, "tooltip": true},
+      "encoding": {
+        "x": {
+          "field": "Anomaly",
+          "type": "quantitative",
+          "title": "Temperature Anomaly (°C)",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "y": {
+          "field": "Annual number of fires",
+          "type": "quantitative",
+          "title": "Number of Fires",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "color": {
+          "field": "Anomaly",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [0.5, 1.0, 1.5],
+            "range": ["#3d0a00", "#7a3010", "#e05c00", "#ff6b35"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Anomaly", "type": "quantitative", "title": "Temp Anomaly (°C)", "format": ".2f"},
+          {"field": "Annual number of fires", "type": "quantitative", "title": "Number of Fires", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#ff9a56"
+      },
+      "encoding": {
+        "x": {"field": "Anomaly", "type": "quantitative"},
+        "y": {"field": "Annual number of fires", "type": "quantitative"},
+        "text": {"field": "Year", "type": "ordinal"}
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
+  }
+}

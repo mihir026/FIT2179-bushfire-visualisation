@@ -20,8 +20,8 @@ vegaEmbed("#temp_vs_fire_scatter", "js/temp_vs_fire.vg.json").catch(console.erro
 // Chart 7: Emissions per Hectare Scatter
 vegaEmbed("#emissions_lollipop", "js/emissions_hectare.vg.json").catch(console.error);
 
-// Chart 8: Worst Fire Seasons
-vegaEmbed("#worst_seasons_chart", "js/worst_seasons.vg.json").catch(console.error);
+// Chart 8: Temperature vs No. of Fire scatter
+vegaEmbed("#temp_vs_fire_scatter", "js/temp_firescatter.vg.json").catch(console.error);
 
 // Chart 9: Emissions per Hectare (Lollipop)
 vegaEmbed("#emissions_lollipop", "js/emissions_lollipop.vg.json").catch(console.error);
