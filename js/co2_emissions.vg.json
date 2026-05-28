@@ -15,26 +15,21 @@
   ],
   "layer": [
     {
-      "mark": {"type": "rule", "strokeWidth": 2},
+      "mark": {"type": "rule", "strokeWidth": 2, "color": "#7a3010"},
       "encoding": {
         "x": {"field": "Year", "type": "ordinal"},
-        "y": {"field": "Annual carbon dioxide emissions", "type": "quantitative"},
-        "color": {
-          "field": "Annual carbon dioxide emissions",
-          "type": "quantitative",
-          "scale": {
-            "type": "linear",
-            "domain": [200000000, 900000000],
-            "range": ["#3d0a00", "#ff4500"]
-          },
-          "legend": null
-        }
+        "y": {"field": "Annual carbon dioxide emissions", "type": "quantitative"}
       }
     },
     {
-      "mark": {"type": "point", "size": 120, "tooltip": true},
+      "mark": {"type": "point", "size": 120, "filled": true, "tooltip": true},
       "encoding": {
-        "x": {"field": "Year", "type": "ordinal", "title": "Year", "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}},
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
         "y": {
           "field": "Annual carbon dioxide emissions",
           "type": "quantitative",
@@ -45,9 +40,9 @@
           "field": "Annual carbon dioxide emissions",
           "type": "quantitative",
           "scale": {
-            "type": "linear",
-            "domain": [250000, 750000],
-            "range": ["#7a3010", "#ff6b35"]
+            "type": "threshold",
+            "domain": [300000000, 500000000, 700000000, 900000000],
+            "range": ["#3d0a00", "#7a3010", "#e05c00", "#ff6b35", "#ff9a56"]
           },
           "legend": null
         },
