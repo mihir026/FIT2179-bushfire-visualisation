@@ -1,10 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Australia's Worst Fire Seasons by Area Burnt",
-    "color": "#f5e6d3",
-    "fontSize": 16
-  },
+  "text": "Australia's Worst Fire Seasons by Area Burnt",
+  "subtitle": "Includes all fire types — prescribed burns, grass fires and bushfires",
+  "color": "#f5e6d3",
+  "subtitleColor": "#c8a882",
+  "fontSize": 16,
+  "subtitleFontSize": 12
+},
   "width": 860,
   "height": 350,
   "background": "#1a0a02",

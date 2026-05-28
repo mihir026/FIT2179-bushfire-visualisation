@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Hotter Years, More Intense Burns — Temp Anomaly vs CO₂ per Hectare",
+    "text": "Temp Anomaly vs CO₂ per Hectare",
     "color": "#f5e6d3",
     "fontSize": 16
   },
