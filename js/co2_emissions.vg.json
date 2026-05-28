@@ -13,25 +13,31 @@
     {"filter": "datum.Entity == 'Australia'"},
     {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"}
   ],
-  "mark": {"type": "line", "color": "#ff6b35", "point": {"color": "#ff6b35"}, "tooltip": true},
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "title": "Year",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+  "layer": [
+    {
+      "mark": {"type": "rule", "color": "#7a3010", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Annual carbon dioxide emissions", "type": "quantitative"}
+      }
     },
-    "y": {
-      "field": "Annual carbon dioxide emissions",
-      "type": "quantitative",
-      "title": "CO₂ Emissions (tonnes)",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
-    },
-    "tooltip": [
-      {"field": "Year", "type": "ordinal", "title": "Year"},
-      {"field": "Annual carbon dioxide emissions", "type": "quantitative", "title": "CO₂ Emissions (t)", "format": ","}
-    ]
-  },
+    {
+      "mark": {"type": "point", "color": "#ff6b35", "size": 100, "tooltip": true},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal", "title": "Year", "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}},
+        "y": {
+          "field": "Annual carbon dioxide emissions",
+          "type": "quantitative",
+          "title": "CO₂ Emissions (tonnes)",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Annual carbon dioxide emissions", "type": "quantitative", "title": "CO₂ Emissions (t)", "format": ","}
+        ]
+      }
+    }
+  ],
   "config": {
     "background": "#1a0a02",
     "view": {"stroke": "transparent"}
