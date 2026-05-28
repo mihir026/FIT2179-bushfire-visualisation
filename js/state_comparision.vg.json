@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Area Burnt by State — 2019 vs 2020",
+    "subtitle": "Comparing the Black Summer (2019) with the following season (2020)",
+    "color": "#f5e6d3",
+    "subtitleColor": "#c8a882",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
+  "width": 860,
+  "height": 350,
+  "background": "#1a0a02",
+  "data": {"url": "data/state_fires.csv"},
+  "mark": {"type": "bar", "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "state_code",
+      "type": "nominal",
+      "title": "State",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+    },
+    "y": {
+      "field": "area_burnt_ha",
+      "type": "quantitative",
+      "title": "Area Burnt (hectares)",
+      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+    },
+    "color": {
+      "field": "year",
+      "type": "nominal",
+      "scale": {
+        "domain": [2019, 2020],
+        "range": ["#ff6b35", "#7a3010"]
+      },
+      "legend": {
+        "title": "Year",
+        "labelColor": "#c8a882",
+        "titleColor": "#c8a882"
+      }
+    },
+    "xOffset": {"field": "year", "type": "nominal"},
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "year", "type": "nominal", "title": "Year"},
+      {"field": "area_burnt_ha", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
+    ]
+  },
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
+  }
+}

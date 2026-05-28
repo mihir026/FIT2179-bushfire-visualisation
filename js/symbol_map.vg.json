@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Fire Intensity by State — Black Summer 2019",
+    "subtitle": "Circle size represents area burnt in hectares",
+    "color": "#f5e6d3",
+    "subtitleColor": "#c8a882",
+    "fontSize": 16,
+    "subtitleFontSize": 12
+  },
+  "width": 700,
+  "height": 400,
+  "background": "#1a0a02",
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "projection": {"type": "mercator"},
+      "mark": {
+        "type": "geoshape",
+        "fill": "#2d1208",
+        "stroke": "#3d1a08",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"state": "NSW", "latitude": -32.0, "longitude": 147.0, "area_burnt_ha": 5260867},
+          {"state": "VIC", "latitude": -37.0, "longitude": 144.0, "area_burnt_ha": 1902631},
+          {"state": "QLD", "latitude": -22.0, "longitude": 144.0, "area_burnt_ha": 832439},
+          {"state": "WA",  "latitude": -25.0, "longitude": 122.0, "area_burnt_ha": 246884},
+          {"state": "SA",  "latitude": -30.0, "longitude": 135.0, "area_burnt_ha": 98213},
+          {"state": "TAS", "latitude": -42.0, "longitude": 146.5, "area_burnt_ha": 64452},
+          {"state": "NT",  "latitude": -19.0, "longitude": 133.0, "area_burnt_ha": 149500},
+          {"state": "ACT", "latitude": -35.5, "longitude": 149.0, "area_burnt_ha": 85000}
+        ]
+      },
+      "projection": {"type": "mercator"},
+      "mark": {"type": "circle", "opacity": 0.8, "tooltip": true},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "area_burnt_ha",
+          "type": "quantitative",
+          "title": "Area Burnt (ha)",
+          "scale": {
+            "type": "threshold",
+            "domain": [100000, 500000, 1000000, 3000000],
+            "range": [100, 300, 600, 1200, 2500]
+          },
+          "legend": {
+            "labelColor": "#c8a882",
+            "titleColor": "#c8a882"
+          }
+        },
+        "color": {
+          "field": "area_burnt_ha",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [100000, 500000, 1000000, 3000000],
+            "range": ["#7a3010", "#a84020", "#d45030", "#e05c00", "#ff6b35"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "area_burnt_ha", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "#1a0a02",
+    "view": {"stroke": "transparent"}
+  }
+}
