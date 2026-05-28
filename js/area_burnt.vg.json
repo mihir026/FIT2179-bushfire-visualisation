@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Annual Area Burnt by Wildfires in Australia",
+    "text": "Annual Area Burnt by Wildfires in Australia (2012–2025)",
     "color": "#f5e6d3",
     "fontSize": 16
   },
@@ -13,25 +13,66 @@
     {"filter": "datum.Entity == 'Australia'"},
     {"filter": "toNumber(datum.Year) >= 2012 && toNumber(datum.Year) <= 2025"}
   ],
-  "mark": {"type": "line", "color": "#ff6b35", "point": {"color": "#ff6b35"}, "tooltip": true},
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "title": "Year",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+  "layer": [
+    {
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "y": {
+          "field": "Annual area burnt by wildfires",
+          "type": "quantitative",
+          "title": "Area Burnt (hectares)",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "color": {
+          "condition": {
+            "test": "datum['Annual area burnt by wildfires'] > 40000000",
+            "value": "#ff6b35"
+          },
+          "value": "#7a3010"
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Annual area burnt by wildfires", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
+        ]
+      }
     },
-    "y": {
-      "field": "Annual area burnt by wildfires",
-      "type": "quantitative",
-      "title": "Area Burnt (hectares)",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+    {
+      "mark": {"type": "rule", "color": "#ff9a56", "strokeWidth": 2},
+      "encoding": {
+        "y": {
+          "aggregate": "mean",
+          "field": "Annual area burnt by wildfires",
+          "type": "quantitative"
+        }
+      }
     },
-    "tooltip": [
-      {"field": "Year", "type": "ordinal", "title": "Year"},
-      {"field": "Annual area burnt by wildfires", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
-    ]
-  },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -8,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#ff9a56"
+      },
+      "encoding": {
+        "x": {"value": 0},
+        "y": {
+          "aggregate": "mean",
+          "field": "Annual area burnt by wildfires",
+          "type": "quantitative"
+        },
+        "text": {"value": "Average"}
+      }
+    }
+  ],
   "config": {
     "background": "#1a0a02",
     "view": {"stroke": "transparent"}
