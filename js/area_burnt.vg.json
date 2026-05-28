@@ -15,7 +15,12 @@
   ],
   "layer": [
     {
-      "mark": {"type": "bar", "tooltip": true},
+      "mark": {
+        "type": "area",
+        "color": "#e05c00",
+        "opacity": 0.4,
+        "line": {"color": "#ff6b35", "strokeWidth": 2}
+      },
       "encoding": {
         "x": {
           "field": "Year",
@@ -28,13 +33,6 @@
           "type": "quantitative",
           "title": "Area Burnt (hectares)",
           "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
-        },
-        "color": {
-          "condition": {
-            "test": "datum['Annual area burnt by wildfires'] > 40000000",
-            "value": "#ff6b35"
-          },
-          "value": "#7a3010"
         },
         "tooltip": [
           {"field": "Year", "type": "ordinal", "title": "Year"},
