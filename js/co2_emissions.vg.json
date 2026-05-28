@@ -24,8 +24,8 @@
           "type": "quantitative",
           "scale": {
             "type": "linear",
-            "domain": [250000, 750000],
-            "range": ["#7a3010", "#ff6b35"]
+            "domain": [200000000, 900000000],
+            "range": ["#3d0a00", "#ff4500"]
           },
           "legend": null
         }
