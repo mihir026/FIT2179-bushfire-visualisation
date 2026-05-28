@@ -23,7 +23,7 @@ vegaEmbed("#co2_chart", "js/co2_emissions.vg.json").catch(console.error);
 vegaEmbed("#worst_seasons_chart", "js/worst_seasons.vg.json").catch(console.error);
 
 // Chart 9: State Comparison - grouped bar 2019 vs 2020
-vegaEmbed("#state_comparison", "js/state_comparison.vg.json").catch(console.error);
+vegaEmbed("#state_comparison", "js/state_comparision.vg.json").catch(console.error);
 
 // Chart 10: CO2 per Hectare Lollipop - combines co2 + area data
 vegaEmbed("#emissions_lollipop", "js/emissions_hectare.vg.json").catch(console.error);
