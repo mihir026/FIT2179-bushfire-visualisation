@@ -8,12 +8,18 @@
     "fontSize": 16,
     "subtitleFontSize": 12
   },
-  "width": 860,
+  "width": 400,
   "height": 350,
   "background": "#1a0a02",
   "data": {"url": "data/state_fires.csv"},
   "mark": {"type": "bar", "tooltip": true},
   "encoding": {
+    "column": {
+      "field": "year",
+      "type": "nominal",
+      "title": "Year",
+      "header": {"labelColor": "#c8a882", "titleColor": "#c8a882"}
+    },
     "x": {
       "field": "state_code",
       "type": "nominal",
@@ -33,13 +39,8 @@
         "domain": [2019, 2020],
         "range": ["#ff6b35", "#7a3010"]
       },
-      "legend": {
-        "title": "Year",
-        "labelColor": "#c8a882",
-        "titleColor": "#c8a882"
-      }
+      "legend": null
     },
-    "xOffset": {"field": "year", "type": "nominal"},
     "tooltip": [
       {"field": "state", "type": "nominal", "title": "State"},
       {"field": "year", "type": "nominal", "title": "Year"},
@@ -48,6 +49,7 @@
   },
   "config": {
     "background": "#1a0a02",
-    "view": {"stroke": "transparent"}
+    "view": {"stroke": "transparent"},
+    "facet": {"spacing": 20}
   }
 }
