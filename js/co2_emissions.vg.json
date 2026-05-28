@@ -15,14 +15,24 @@
   ],
   "layer": [
     {
-      "mark": {"type": "rule", "color": "#7a3010", "strokeWidth": 2},
+      "mark": {"type": "rule", "strokeWidth": 2},
       "encoding": {
         "x": {"field": "Year", "type": "ordinal"},
-        "y": {"field": "Annual carbon dioxide emissions", "type": "quantitative"}
+        "y": {"field": "Annual carbon dioxide emissions", "type": "quantitative"},
+        "color": {
+          "field": "Annual carbon dioxide emissions",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [250000, 750000],
+            "range": ["#7a3010", "#ff6b35"]
+          },
+          "legend": null
+        }
       }
     },
     {
-      "mark": {"type": "point", "color": "#ff6b35", "size": 100, "tooltip": true},
+      "mark": {"type": "point", "size": 120, "tooltip": true},
       "encoding": {
         "x": {"field": "Year", "type": "ordinal", "title": "Year", "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}},
         "y": {
@@ -30,6 +40,16 @@
           "type": "quantitative",
           "title": "CO₂ Emissions (tonnes)",
           "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "color": {
+          "field": "Annual carbon dioxide emissions",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [250000, 750000],
+            "range": ["#7a3010", "#ff6b35"]
+          },
+          "legend": null
         },
         "tooltip": [
           {"field": "Year", "type": "ordinal", "title": "Year"},
