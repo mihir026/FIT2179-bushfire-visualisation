@@ -85,7 +85,7 @@
   },
   "encoding": {
     "x": {"value": 10},
-    "y": {"value": 20},
+    "y": {"value": 15},
     "text": {"value": "Anomaly = difference from 1961–1990 average temperature baseline"}
   }
 }
