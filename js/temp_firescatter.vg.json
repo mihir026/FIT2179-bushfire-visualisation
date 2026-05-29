@@ -55,6 +55,7 @@
           {"field": "Anomaly", "type": "quantitative", "title": "Temp Anomaly (°C)", "format": ".2f"},
           {"field": "Annual number of fires", "type": "quantitative", "title": "Number of Fires", "format": ","}
         ]
+        
       }
     },
     {
@@ -71,7 +72,23 @@
         "y": {"field": "Annual number of fires", "type": "quantitative"},
         "text": {"field": "Year", "type": "ordinal"}
       }
-    }
+    },
+    
+{
+  "data": {"values": [{}]},
+  "mark": {
+    "type": "text",
+    "align": "left",
+    "fontSize": 11,
+    "fontStyle": "italic",
+    "color": "#c8a882"
+  },
+  "encoding": {
+    "x": {"value": 10},
+    "y": {"value": 20},
+    "text": {"value": "Anomaly = difference from 1961–1990 average temperature baseline"}
+  }
+}
   ],
   "config": {
     "background": "#1a0a02",

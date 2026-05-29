@@ -32,14 +32,18 @@
       "title": "Area Burnt (hectares)",
       "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
     },
-    "color": {
+      "color": {
       "field": "year",
       "type": "nominal",
       "scale": {
-        "domain": [2019, 2020],
-        "range": ["#ff6b35", "#7a3010"]
+      "domain": [2019, 2020],
+      "range": ["#ff6b35", "#7a3010"]
       },
-      "legend": null
+      "legend": {
+      "title": "Year",
+      "labelColor": "#c8a882",
+      "titleColor": "#c8a882"
+      }
     },
     "tooltip": [
       {"field": "state", "type": "nominal", "title": "State"},
