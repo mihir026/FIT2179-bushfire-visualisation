@@ -13,7 +13,7 @@ vegaEmbed("#symbol_map", "js/symbol_map.vg.json").catch(console.error);
 // Chart 5: Temperature Anomaly - diverging bar
 vegaEmbed("#temp_anomaly_chart", "js/temp_anomaly.vg.json").catch(console.error);
 
-// Chart 6: Temp vs Fires Scatter - combines BOM + num_fires
+// Chart 6: Temp vs Fires Scatter - combine BOM + num_fires
 vegaEmbed("#temp_vs_fire_scatter", "js/temp_firescatter.vg.json").catch(console.error);
 
 // Chart 7: CO2 Emissions Lollipop
