@@ -8,33 +8,52 @@
   "width": 860,
   "height": 350,
   "background": "#1a0a02",
-  "data": {"url": "data/bom_temperature.csv"},
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "title": "Year",
-      "axis": {"labelAngle": 0, "labelOverlap": true, "labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+  "layer": [
+    {
+      "data": {"url": "data/bom_temperature.csv"},
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {"labelAngle": 0, "labelOverlap": true, "labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "y": {
+          "field": "Anomaly",
+          "type": "quantitative",
+          "title": "Temperature Anomaly (°C)",
+          "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
+        },
+        "color": {
+          "condition": {"test": "datum.Anomaly > 0", "value": "#ff6b35"},
+          "value": "#7a3010"
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Anomaly", "type": "quantitative", "title": "Anomaly (°C)", "format": ".2f"}
+        ]
+      }
     },
-    "y": {
-      "field": "Anomaly",
-      "type": "quantitative",
-      "title": "Temperature Anomaly (°C)",
-      "axis": {"labelColor": "#c8a882", "titleColor": "#c8a882", "gridColor": "#2d1208", "labelFontSize": 12, "titleFontSize": 13}
-    },
-    "color": {
-      "condition": {
-        "test": "datum.Anomaly > 0",
-        "value": "#ff6b35"
+    {
+      "data": {
+        "values": [{"Year": "2019", "Anomaly": 1.52}]
       },
-      "value": "#7a3010"
-    },
-    "tooltip": [
-      {"field": "Year", "type": "ordinal", "title": "Year"},
-      {"field": "Anomaly", "type": "quantitative", "title": "Anomaly (°C)", "format": ".2f"}
-    ]
-  },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dy": -10,
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#f5e6d3"
+      },
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Anomaly", "type": "quantitative"},
+        "text": {"value": "Hottest year on record"}
+      }
+    }
+  ],
   "config": {
     "background": "#1a0a02",
     "view": {"stroke": "transparent"}

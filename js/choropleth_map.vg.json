@@ -7,38 +7,60 @@
   "width": 700,
   "height": 400,
   "background": "#1a0a02",
-  "data": {
-    "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
-    "format": {"type": "json", "property": "features"}
-  },
   "projection": {"type": "mercator"},
-  "transform": [
+  "layer": [
     {
-      "lookup": "properties.STATE_NAME",
-      "from": {
-        "data": {"url": "data/state_fires.csv"},
-        "key": "state",
-        "fields": ["area_burnt_ha", "state_code"]
+      "data": {
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {"url": "data/state_fires.csv"},
+            "key": "state",
+            "fields": ["area_burnt_ha", "state_code"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#3d1a08", "strokeWidth": 1},
+      "encoding": {
+        "color": {
+          "field": "area_burnt_ha",
+          "type": "quantitative",
+          "title": "Area Burnt (ha)",
+          "scale": {
+            "type": "threshold",
+            "domain": [100000, 500000, 1000000, 3000000],
+            "range": ["#7a3010", "#a84020", "#d45030", "#e05c00", "#ff6b35"]
+          },
+          "legend": {"labelColor": "#c8a882", "titleColor": "#c8a882"}
+        },
+        "tooltip": [
+          {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
+          {"field": "area_burnt_ha", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [{"note": "NSW bore the heaviest burden — over 5.3M hectares burnt"}]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "x": "width",
+        "y": 20,
+        "fontSize": 12,
+        "fontStyle": "italic",
+        "color": "#f5e6d3"
+      },
+      "encoding": {
+        "text": {"field": "note", "type": "nominal"}
       }
     }
   ],
-  "mark": {"type": "geoshape", "stroke": "#3d1a08", "strokeWidth": 1},
-  "encoding": {
-    "color": {
-      "field": "area_burnt_ha",
-      "type": "quantitative",
-      "title": "Area Burnt (ha)",
-      "scale": {
-        "type": "threshold",
-        "domain": [100000, 500000, 1000000, 3000000],
-        "range": ["#7a3010", "#a84020", "#d45030", "#e05c00", "#ff6b35"]
-      },
-      "legend": {"labelColor": "#c8a882", "titleColor": "#c8a882"}
-    },
-    "tooltip": [
-      {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
-      {"field": "area_burnt_ha", "type": "quantitative", "title": "Area Burnt (ha)", "format": ","}
-    ]
-  },
   "config": {"background": "#1a0a02", "view": {"stroke": "transparent"}}
 }
